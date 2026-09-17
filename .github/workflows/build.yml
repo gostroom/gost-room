@@ -1,16 +1,4 @@
-name: Build Android APK
-
-on:
-  push:
-    branches: [ main, master ]
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
+actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -27,15 +15,4 @@ jobs:
     - name: Accept Android SDK Licenses
       run: |
         mkdir -p ~/.android
-        touch ~/.android/repositories.cfg
-        yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
-
-    - name: Build with Buildozer
-      run: |
-        yes | buildozer android debug
-
-    - name: Upload APK
-      uses: actions/upload-artifact@v4
-      with:
-        name: app-release
-        path: bin/*.apk
+        touch ~/.android/repositories.
