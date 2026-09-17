@@ -26,20 +26,18 @@ jobs:
     - name: Install System Dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential ccache git
-        sudo apt-get install -y libffi-dev libssl-dev python3-dev zip unzip
-        sudo apt-get install -y autoconf automake libtool pkg-config m4
-        sudo apt-get install -y cmake ninja-build
+        sudo apt-get install -y build-essential ccache git libffi-dev libssl-dev python3-dev zip unzip autoconf automake libtool pkg-config m4 cmake ninja-build gettext
         pip install --upgrade pip
-        pip install buildozer cython
+        pip install "buildozer==1.5.0" "cython<3.0.0"
 
     - name: Accept Android SDK Licenses
       run: |
         yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
-        $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "build-tools;33.0.2" "platforms;android-33"
+        $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "build-tools;33.0.2" "platforms;android-33" "ndk;25.2.9519653"
 
     - name: Build with Buildozer
       run: |
+        export ANDROIDNDK=$ANDROID_HOME/ndk/25.2.9519653
         yes | buildozer android debug
 
     - name: Upload APK
