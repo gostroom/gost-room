@@ -79,8 +79,15 @@ osx.kivy_version = 2.2.0
 
 #
 # Android specific
+
+# (int) Target Android API, should be as high as possible.
 android.api = 33
-android.build_tools_version = 33.0.2
+
+# (int) Minimum API required
+android.minapi = 21
+
+# (str) Android NDK version to use
+android.ndk = 25b
 
 
 # (bool) Indicate if the application should be fullscreen or not
