@@ -37,13 +37,6 @@ jobs:
 
     - name: Build with Buildozer
       run: |
-        export ANDROIDNDK=$ANDROID_HOME/ndk/25.2.9519653
-        yes | buildozer android debug
-
-    - name: Upload APK
-      uses: actions/upload-artifact@v4
-      with:
-        name: app-release
-        path: bin/*.apk
+        export ANDROIDN
 
         
