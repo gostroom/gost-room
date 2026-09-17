@@ -28,7 +28,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y build-essential ccache git
         sudo apt-get install -y libffi-dev libssl-dev python3-dev zip unzip
-        sudo apt-get install -y autoconf automake libtool pkg-config
+        sudo apt-get install -y autoconf automake libtool pkg-config m4
         sudo apt-get install -y cmake ninja-build
         pip install --upgrade pip
         pip install buildozer cython
@@ -47,3 +47,4 @@ jobs:
       with:
         name: app-release
         path: bin/*.apk
+        
