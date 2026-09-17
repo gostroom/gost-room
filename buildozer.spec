@@ -82,6 +82,8 @@ osx.kivy_version = 2.2.0
 
 # (int) Target Android API, should be as high as possible.
 android.api = 33
+android.accept_sdk_license = True
+
 
 # (int) Minimum API required
 android.minapi = 21
@@ -344,7 +346,7 @@ android.allow_backup = True
 #p4a.fork = kivy
 
 # (str) python-for-android branch to use, defaults to master
-#p4a.branch = master
+p4a.branch = master
 
 # (str) python-for-android specific commit to use, defaults to HEAD, must be within p4a.branch
 #p4a.commit = HEAD
